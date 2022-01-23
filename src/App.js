@@ -1,23 +1,21 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-
+import NavBar from "./components/Navbar/NavBar";
+const appStyles ={
+  height : 1500,
+  Width : 1500,
+  backgroundColor : "red",
+};
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+  <h1>Hola,este es mi programa de ecommerce ,Rodrigo Carrizo</h1>
+
+    <div style={appStyles} />
+  
+
     </div>
   );
 }
