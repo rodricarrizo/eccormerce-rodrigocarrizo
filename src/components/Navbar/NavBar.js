@@ -1,5 +1,6 @@
 import React from 'react'
 import {Navbar,Container,Nav,NavDropdown} from "react-bootstrap";
+import CartIcon from '../../Icon/CartIcon';
 
 const NavBar = () => {
   return (
@@ -20,6 +21,7 @@ const NavBar = () => {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
+      <CartIcon/>
     </Container>
   </Navbar>
   )
