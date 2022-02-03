@@ -21,7 +21,7 @@ const ItemCounter = ({ stock }) => {
   return (
       <>
     <div>
-        <h3>Me han tocado{currentTimes} veces! = 0</h3>
+        <h3>Compras = {currentTimes}</h3>
         <h3> {currentDate} </h3>
         <button onClick={minusCounter}>-</button>
         <span>{counter}</span>

@@ -1,35 +1,32 @@
-import React from 'react'
-import Item from '../item/Item'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
-const items = [ 
-    { id : "1 " , name :  "Nike Air Max" , price : "37,200" },
-    { id : "2 ", name : "Nike Air Force" , price : "27,200"  },
-    { id : "3 " , name : "Nike Air Max 97" , price : "40,200"  },
-];
+import {itemsApi} from "../Promises/promises";
+import { ItemList } from './itemList';
+
 
 const ItemListContainer = () => {
-    const [selectedItem, setSelectedItem] = useState (null);
-    const otherFunction = () => {
-        console.log ("otherFunction");
+    const [products , setProducts] = useState ( [] ) ;
+    const [loading ,setLoading] = useState (true);
+    useEffect (()=> {
+      getProducts();
+    }, []);
+    const getProducts = async () => {
+        try {
+            const result = await itemsApi;
+            setProducts (result);
+        } catch (error) {
+            console.log ({error });
+        } finally {
+            setLoading(false);
+            console.log ("finalizacion del consumo");
+        }
+    };
+    if (loading) {
+        return <h1>Cargando..</h1>;
     }
-  return (
-    <div>
-        <h1>Lista de Zapatillass</h1>
-        <h3>Producto seleccionado</h3>
-        <p>{selectedItem ? selectedItem : "ninguno"}</p>
-        <hr />
-       {items.map(({name , price , id} ) =>(
-           <Item  
-           key={id}
-           id={id}
-           name={name} 
-           price={price} 
-           setSelectedItem={setSelectedItem} 
-           otherFunction={otherFunction}
-           />
-       ))}
-      </div>
-  )
+return (
+<ItemList items={products}/>
+)
 }
 
 export default ItemListContainer

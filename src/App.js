@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <NavBar />
   <h1>Hola,este es mi programa de ecommerce ,Rodrigo Carrizo</h1>
+ 
 
     <div style={appStyles} />
   <hr/>
